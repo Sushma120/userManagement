@@ -1,8 +1,6 @@
 //defines the methods post, put , get, delete
-"use strict";
-
-module.exports = (app, mongoose, express, upload) => {
+module.exports = (app, mongoose, express) => {
   const router = express.Router();
-  
+
   app.use("/api/v1/userManagement", router);
 }

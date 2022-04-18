@@ -1,6 +1,5 @@
-"use strict";
 
-module.exports=function(app,mongoose){
+module.exports = (app, mongoose) => {
   const userController = {};
   return userController;
 }

@@ -1,5 +1,4 @@
-//the method to create the mongodb instance with the local url.
-"use strict";
+//the method to create the mongodb instance with the local url
 const mongoose = require('mongoose');
 const config = require("./config");
 require("dotenv").config();
@@ -8,7 +7,24 @@ const {
 } = config;
 const dbLink = `mongodb://${host}:${port}/${name}`;
 
-mongoose.connect(dbLink, { useNewUrlParser: true }, (err) => {
-    if (!err) { console.log('MongoDB Connection Succeeded.') }
-    else { console.log('Error in DB connection : ' + err) }
+mongoose.Promise = global.Promise;
+mongoose.connect(dbLink, {});
+let db = mongoose.connection;
+db.once("open", function callback() {
+  console.log("Database connection to MongoDB opened.");
 });
+db.on("connected", function () {
+  console.info("MongoDB event connected");
+});
+db.on("disconnected", function () {
+  console.warn("MongoDB event disconnected");
+});
+db.on("reconnected", function () {
+  console.info("MongoDB event reconnected");
+});
+db.on("error", function (err) {
+  console.error("connection error:" + err);
+});
+console.log("Loading MongoDB Settings ...");
+
+module.exports = mongoose;

@@ -1,0 +1,14 @@
+swagger: '2.0'
+info:
+  description: This is a user management api
+  version: 1.0.0
+  title: User Management 
+tags:
+  - name: User
+    description: Operations about user
+          
+host: localhost:3000
+basePath: /api/v1/userManagement
+schemes:
+  - http 
+
