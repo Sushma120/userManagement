@@ -1,7 +1,7 @@
-"use strict";
+
 const fs = require("fs");
 
-module.exports = function (app, mongoose, dotenv, express) {
+module.exports = (app, mongoose, dotenv, express) => {
   const root = require("path").normalize(__dirname + "/..");
   const modelPath = root + "/models";
   const routePath = root + "/routes";

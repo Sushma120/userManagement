@@ -1,0 +1,228 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a user management api",
+    "version": "1.0.0",
+    "title": "User Management"
+  },
+  "tags": [
+    {
+      "name": "User",
+      "description": "Operations about user"
+    }
+  ],
+  "paths": {
+    "/addUser": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Add user data",
+        "operationId": "addUser",
+        "description": "add user data",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "user details",
+            "description": "enter data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "type": "string"
+                },
+                "lastName": {
+                  "type": "string"
+                },
+                "userName": {
+                  "type": "string"
+                },
+                "age": {
+                  "type": "number"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "phone": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User data added successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "409": {
+            "description": "User already exists"
+          }
+        }
+      }
+    },
+    "/getAllUsers": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get list of all users",
+        "operationId": "getAllUsers",
+        "description": "get all users",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "All users"
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/getById/{_id}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get user data by user id",
+        "operationId": "getById",
+        "description": "get user data",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "type": "string",
+            "required": true,
+            "description": "enter user id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User"
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/update/{_id}": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "update data",
+        "operationId": "update",
+        "description": "update any field",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "type": "string",
+            "required": true,
+            "description": "enter user id"
+          },
+          {
+            "in": "body",
+            "name": "data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "type": "string"
+                },
+                "lastName": {
+                  "type": "string"
+                },
+                "userName": {
+                  "type": "string"
+                },
+                "age": {
+                  "type": "number"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "phone": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User data updated successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/delete/{_id}": {
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "summary": "delete data",
+        "operationId": "delete",
+        "description": "delete any data",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "_id",
+            "type": "string",
+            "required": true,
+            "description": "enter user id"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User data deleted successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/api/v1/userManagement",
+  "schemes": [
+    "http"
+  ]
+}
