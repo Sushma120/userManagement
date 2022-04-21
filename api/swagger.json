@@ -32,33 +32,23 @@
             "name": "user details",
             "description": "enter data",
             "schema": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "type": "string"
-                },
-                "lastName": {
-                  "type": "string"
-                },
-                "userName": {
-                  "type": "string"
-                },
-                "age": {
-                  "type": "number"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "phone": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/components/schemas/User"
             }
           }
         ],
         "responses": {
           "201": {
-            "description": "User data added successfully"
+            "description": "User data added successfully",
+            "examples": {
+              "application/json": {
+                "firstName": "John",
+                "lastName": "A",
+                "userName": "john",
+                "age": 20,
+                "email": "user@gmail.com",
+                "phone": "1234567890"
+              }
+            }
           },
           "400": {
             "description": "Bad request"
@@ -122,6 +112,9 @@
           },
           "400": {
             "description": "Bad request"
+          },
+          "404": {
+            "description": "User not found"
           }
         }
       }
@@ -152,27 +145,7 @@
             "in": "body",
             "name": "data",
             "schema": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "type": "string"
-                },
-                "lastName": {
-                  "type": "string"
-                },
-                "userName": {
-                  "type": "string"
-                },
-                "age": {
-                  "type": "number"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "phone": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/components/schemas/User"
             }
           }
         ],
@@ -182,6 +155,9 @@
           },
           "400": {
             "description": "Bad request"
+          },
+          "404": {
+            "description": "User not found"
           }
         }
       }
@@ -215,6 +191,36 @@
           },
           "400": {
             "description": "Bad request"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "userName": {
+            "type": "string"
+          },
+          "age": {
+            "type": "number"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
           }
         }
       }

@@ -23,23 +23,12 @@ paths:
           name: user details
           description: enter data
           schema:
-            type: object
-            properties:
-              firstName:
-                type: string
-              lastName:
-                type: string
-              userName:
-                type: string
-              age:
-                type: number
-              email:
-                type: string
-              phone:
-                type: string
+            $ref: '#/components/schemas/User'
       responses:
         '201':
           description: User data added successfully
+          examples:
+            application/json: { "firstName": "John", "lastName": "A", "userName": "john","age": 20,"email": "user@gmail.com","phone": "1234567890"}
         '409':
           description: User already exists
         '400':
@@ -84,6 +73,8 @@ paths:
           description: User
         '400':
           description: Bad request
+        '404':
+          description: User not found
           
   /update/{_id}:
     put:
@@ -105,25 +96,14 @@ paths:
         - in: body
           name: data
           schema:
-            type: object
-            properties:
-              firstName:
-                type: string
-              lastName:
-                type: string
-              userName:
-                type: string
-              age:
-                type: number
-              email:
-                type: string
-              phone:
-                type: string
+            $ref: '#/components/schemas/User'
       responses:
         '201':
           description: User data updated successfully
         '400':
           description: Bad request
+        '404':
+          description: User not found
           
   /delete/{_id}:
     delete:
@@ -147,7 +127,25 @@ paths:
           description: User data deleted successfully
         '400':
           description: Bad request
-          
+        '404':
+          description: User not found
+components:
+  schemas:
+     User:
+       type: object
+       properties:
+         firstName:
+          type: string
+         lastName:
+          type: string
+         userName:
+          type: string
+         age:
+          type: number
+         email:
+          type: string
+         phone:
+          type: string
 host: localhost:3000
 basePath: /api/v1/userManagement
 schemes:
