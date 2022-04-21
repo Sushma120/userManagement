@@ -1,4 +1,5 @@
 //defines the shape of documents i.e stored inside a db
+import index from './index.js';
 module.exports = (mongoose) => {
   const userschema = new mongoose.Schema({
     firstName: {
@@ -24,6 +25,6 @@ module.exports = (mongoose) => {
       unique: true,
     }
   });
-  require("./index")(userschema, mongoose);
+  index(userschema,mongoose);
   return mongoose.model("Users", userschema);
 }

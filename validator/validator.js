@@ -1,8 +1,6 @@
 // there is a library used to do these valdations called joi 
 // it should validate the payload
-
-const Joi = require('joi');
-const utils = require('../utils/util')();
+import Joi from 'joi';
 
 module.exports = () => {
   let validator = {};

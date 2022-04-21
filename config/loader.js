@@ -1,7 +1,6 @@
+import fs from 'fs';
 
-const fs = require("fs");
-
-module.exports = (app, mongoose, dotenv, express) => {
+const loader = (app, mongoose, dotenv, express) => {
   const root = require("path").normalize(__dirname + "/..");
   const modelPath = root + "/models";
   const routePath = root + "/routes";
@@ -16,3 +15,4 @@ module.exports = (app, mongoose, dotenv, express) => {
     require(routePath + "/" + file)(app, mongoose, express);
   });
 }
+export default loader;

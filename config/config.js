@@ -1,6 +1,5 @@
-
-require("dotenv").config();
-
+import dotenv from 'dotenv';
+dotenv.config();
 const config = {
   db: {
     host: process.env.HOST,
@@ -8,4 +7,4 @@ const config = {
     name: process.env.DB_NAME,
   }
 };
-module.exports = config;
+export default config;

@@ -1,10 +1,11 @@
 // to generate and verify the jwt token provided
-require("dotenv").config();
-const jwt=require("jsonwebtoken");
+import dotenv from 'dotenv';
+import jwt from 'jsonwebtoken';
 const utils = require("../utils/util")();
 const TOKEN_SECRET = process.env.TOKEN_SECRET;
 
 module.exports = function (app) {
+  dotenv.config();
   let auth = {};
 /*************************generate token***************************** */
   auth.genrateToken = async (data) => {
