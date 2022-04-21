@@ -22,7 +22,13 @@
 ## To start the project:
 Start the API by  
 `npm run start`\
-Your app should now be running on [localhost:3000](http://localhost:3000/)\
+Your app should now be running locally on [localhost:3000](http://localhost:3000/)\
 Base url: [localhost:3000/api/vi/userManagement/](http://localhost:3000/api/vi/userManagement/)
 ## Swagger Details
 Run the api in swagger using url: [localhost:3000/](http://localhost:3000/)
+### Swagger operations:
+* 'addUser'
+* 'getAllUsers'
+* 'getById/{_id}'
+* 'updateById/{_id}'
+* 'deleteBYId/{_id}'
