@@ -1,5 +1,5 @@
 // defines Create , Read, Update and Delete operations
-
-module.exports = (schema, mongoose) => {
+const index=(schema, mongoose) => {
   return schema;
 }
+export default index;

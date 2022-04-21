@@ -1,7 +1,8 @@
 //the method to create the mongodb instance with the local url
-const mongoose = require('mongoose');
-const config = require("./config");
-require("dotenv").config();
+import mongoose from 'mongoose';
+import config from './config.js';
+import dotenv from 'dotenv';
+dotenv.config();
 const {
   db: { host, port, name },
 } = config;
@@ -27,4 +28,4 @@ db.on("error", function (err) {
 });
 console.log("Loading MongoDB Settings ...");
 
-module.exports = mongoose;
+export default mongoose;

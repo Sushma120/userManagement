@@ -1,7 +1,8 @@
 // to verify the jwt token provided
-"use strict";
-require("dotenv").config();
+import dotenv from 'dotenv';
 
 module.exports = function (app) {
+  dotenv.config();
   let auth = {};
+  return auth;
 }
